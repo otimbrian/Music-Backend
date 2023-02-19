@@ -1,0 +1,9 @@
+POST http://localhost:8080/create
+
+Content-Type: application/json
+
+{
+    "name": "ghhhhhhhhhhhh",
+    "email": "otims.brian@gmail.com",
+    "password": "heloo otim"
+}
