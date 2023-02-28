@@ -164,8 +164,6 @@ func GetAllMusic(c *gin.Context) {
 	c.JSON(http.StatusOK, musicList)
 }
 
-
-
 func CreateMusicAlbum(c *gin.Context) {
 	receivedByteData, err := c.GetRawData()
 	if err != nil {
@@ -302,7 +300,6 @@ func CreateArtist(c *gin.Context) {
 		}
 	}
 }
-
 
 func GetMusicAlbum(c *gin.Context) {
 	musicAlbumId := c.Param("id")
