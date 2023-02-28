@@ -164,6 +164,8 @@ func GetAllMusic(c *gin.Context) {
 	c.JSON(http.StatusOK, musicList)
 }
 
+
+
 func CreateMusicAlbum(c *gin.Context) {
 	receivedByteData, err := c.GetRawData()
 	if err != nil {
@@ -230,20 +232,6 @@ func CreateMusicAlbum(c *gin.Context) {
 			}
 		}
 	}
-}
-
-func GetMusicAlbum(c *gin.Context) {
-	musicAlbumId := c.Param("id")
-
-	retrievedAlbum := database.GetOneAlbum(database.DbIstance, musicAlbumId)
-	c.JSON(http.StatusAccepted, retrievedAlbum)
-}
-
-func GetAllArtists(c *gin.Context) {
-	var artistList []models.Artist
-
-	database.DbIstance.Find(&artistList)
-	c.JSON(http.StatusAccepted, artistList)
 }
 
 func CreateArtist(c *gin.Context) {
@@ -313,4 +301,26 @@ func CreateArtist(c *gin.Context) {
 			}
 		}
 	}
+}
+
+
+func GetMusicAlbum(c *gin.Context) {
+	musicAlbumId := c.Param("id")
+
+	retrievedAlbum := database.GetOneAlbum(database.DbIstance, musicAlbumId)
+	c.JSON(http.StatusAccepted, retrievedAlbum)
+}
+
+func GetAllArtists(c *gin.Context) {
+	var artistList []models.Artist
+
+	database.DbIstance.Find(&artistList)
+	c.JSON(http.StatusAccepted, artistList)
+}
+
+func GetAllMusicAlbums(c *gin.Context) {
+	var albumList []models.Album
+
+	database.DbIstance.Find(&albumList)
+	c.JSON(http.StatusOK, albumList)
 }
