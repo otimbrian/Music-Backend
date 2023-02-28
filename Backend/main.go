@@ -53,11 +53,16 @@ func main() {
 			create.POST("/artist", handlers.CreateArtist)
 			create.POST("/album", handlers.CreateMusicAlbum)
 		}
+		get := music.Group("/get")
+		{
+			get.GET("/artists", handlers.GetAllArtists)
+			get.GET("/music", handlers.GetAllMusic)
+		}
 
 		music.PATCH("/like", handlers.LikeOrUnlikeMusic)
 		music.DELETE("/delete/:id", handlers.DeleteMusic)
-		music.GET("/", handlers.GetAllMusic)
-		music.GET("/artists", handlers.GetAllArtists)
+		// music.GET("/", handlers.GetAllMusic)
+		// music.GET("/artists", handlers.GetAllArtists)
 		// music.POST("/")
 	}
 
